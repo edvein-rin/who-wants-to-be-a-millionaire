@@ -4,6 +4,11 @@
     "prefix": "expo",
     "body": ["export { $2 } from \"$1\";"]
   },
+  "export type { $ } from '$';": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "expotype",
+    "body": ["export type { $2 } from \"$1\";"]
+  },
   "export * from './ui';": {
     "scope": "typescript,typescriptreact",
     "prefix": "expoui",
