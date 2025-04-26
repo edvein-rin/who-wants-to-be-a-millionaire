@@ -10,8 +10,8 @@
     "lint": "next lint --max-warnings 0",
     "lint:fix": "next lint --fix",
     "lint:staged": "lint-staged",
-    "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest watch --passWithNoTests"
   },
   "dependencies": {
     "classnames": "2.5.1",
