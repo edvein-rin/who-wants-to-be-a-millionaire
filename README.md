@@ -1,13 +1,21 @@
-# :money_with_wings: Who wants to be a millionaire?
+<h1 align="center">💸 Who wants to be a millionaire? 💸</h1>
 
-![Node.js Badge](https://img.shields.io/badge/Node.js-22.14.0-green)
-![React Badge](https://img.shields.io/badge/React-^19-blue)
-![Next.js Badge](https://img.shields.io/badge/Next.js-15.3.1-white)
-[![MIT licensed](https://img.shields.io/github/license/edvein-rin/who-wants-to-be-a-millionaire.svg?color=blue)](https://github.com/edvein-rin/who-wants-to-be-a-millionaire/blob/master/LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-22.14.0-green" />
+  <img src="https://img.shields.io/badge/React-^19-blue" />
+  <img src="https://img.shields.io/badge/Next.js-15.3.1-white" />
+  <img src="https://img.shields.io/github/license/edvein-rin/who-wants-to-be-a-millionaire.svg?color=blue" />
+<p>
 
-A simple "Who wants to be a millionaire" web game implementation.
+<p align="center">
+Test your knowledge and climb to victory!<br />
+Answer 12 questions correctly to win — but one mistake ends it all.<br />
+Ready for the challenge?
+</p>
 
-:sparkles: [CLICK TO PLAY](https://who-wants-to-be-a-millionaire-orcin.vercel.app/) :sparkles:
+<p align="center">
+  ✨ <a href="https://who-wants-to-be-a-millionaire-orcin.vercel.app/">CLICK TO PLAY</a> ✨
+</p>
 
 ## Stack
 
