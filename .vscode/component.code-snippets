@@ -14,7 +14,7 @@ ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}
         className?: string;
       }
 
-      export const Component: FC<ComponentProps> = ({ className }) {
+      export const Component = ({ className }: ComponentProps) {
         return <div className={classNames(className)}>Component</div>;
       }
       */
@@ -24,7 +24,7 @@ ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}
       "  className?: string;",
       "}",
       "",
-      "export const ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}: FC<${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Props> = ({ className }) => {",
+      "export const ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/} = ({ className }: ${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}Props) => {",
       "  return <div className={classNames(className)}>${TM_DIRECTORY/^.+[\\/\\\\]+(.*)$/$1/}$0</div>;",
       "};",
       ""
