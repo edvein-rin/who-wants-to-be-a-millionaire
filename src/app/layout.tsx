@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Who wants to be a millionaire?",
   },
   description:
-    'A simple "Who wants to be a millionaire" web game.',
+    "Test your knowledge and climb to victory! Answer 12 questions correctly to win — but one mistake ends it all. Ready for the challenge?",
 };
 
 export default function RootLayout({
