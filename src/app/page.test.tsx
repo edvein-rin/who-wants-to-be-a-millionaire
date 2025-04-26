@@ -5,5 +5,5 @@ import HomePage from "./page";
 
 test("home page", () => {
   render(<HomePage />);
-  expect(screen.getByText("Read our docs", { selector: "a" })).toBeDefined();
+  expect(screen.getByText("Empty, but ready to be filled!")).toBeDefined();
 });
