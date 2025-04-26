@@ -1,3 +1,5 @@
+import { Game } from "@/modules/game";
+
 export default function Home() {
-  return <div>Empty, but ready to be filled!</div>;
+  return <Game />;
 }
