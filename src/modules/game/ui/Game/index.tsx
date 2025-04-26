@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Reward } from "@/modules/reward";
-import { GameOverStage, GamePlayStage, GameStartStage } from "..";
 
-import { GameStage, gameConfig, validateGameConfig } from "./lib";
+import { GameStartStage, GamePlayStage, GameOverStage } from "..";
+import { GameStage, gameConfig, validateGameConfig } from "../../lib";
 
 export const Game = () => {
   const isFirstRenderReference = useRef(true);
