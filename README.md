@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# :money_with_wings: Who wants to be a millionaire?
 
-## Getting Started
+![Node.js Badge](https://img.shields.io/badge/Node.js-22.14.0-green)
+![React Badge](https://img.shields.io/badge/React-^19-blue)
+![Next.js Badge](https://img.shields.io/badge/Next.js-15.3.1-white)
+[![MIT licensed](https://img.shields.io/github/license/edvein-rin/who-wants-to-be-a-millionaire.svg?color=blue)](https://github.com/edvein-rin/who-wants-to-be-a-millionaire/blob/master/LICENSE)
 
-First, run the development server:
+A simple "Who wants to be a millionaire" web game implementation.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+:sparkles: [CLICK TO PLAY](https://who-wants-to-be-a-millionaire-orcin.vercel.app/) :sparkles:
+
+## Stack
+
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [CSS modules](https://github.com/css-modules/css-modules)
+- **Linting:** [ESLint](https://eslint.org/)
+- **Testing:** [vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), [StoryBook](https://storybook.js.org/), [Playwright](https://playwright.dev/)
+- **CI/CD**: [GitHub Actions](https://github.com/features/actions), [Husky](https://typicode.github.io/husky/), [lint-staged](https://github.com/lint-staged/lint-staged), [commitlint](https://commitlint.js.org/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## Requirements
+
+[nvm](https://github.com/nvm-sh/nvm) any version.  
+[pnpm](https://pnpm.io/installation) version `>= 10`.
+
+## Installation
+
+```
+nvm install
+nvm use
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev
+```
 
-## Learn More
+### Building
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Start build locally
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Testing
 
-## Deploy on Vercel
+```bash
+pnpm test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Watch for file changes and rerun tests
+pnpm test:watch
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Linting
+
+```bash
+pnpm lint
+```
+
+```bash
+# Fix what can be fixed automatically
+pnpm lint:fix
+```
+
+```bash
+# Lint staged files only
+pnpm lint:staged
+```
+
+## Architecture
+
+Modular front-end a little bit inspired by `Nest.js` structure.
+
+### Folder Structure
+
+```
+.
+├── ...
+├── public                  # Public assets
+│   └── images
+│           └── icons
+├── src
+│   ├── app                 # Next.js routing (pages)
+│   └── modules             # Modules
+│           ├── shared
+│           ├── answer
+│           └── ...
+└── ...
+```
+
+### Modules
+
+Modules provide a **public interface** for importing things from them via `index.ts`.  
+What is not exported from a module can't be imported directly.  
+By this, **cohesion** and **transparent dependencies** are achieved.
+
+Components (ui/libs) inside a module can use each other.
+
+#### Module Structure
+
+```
+.
+├── ui         # React components
+└── lib        # Functions, hooks etc
+```
+
+#### Existing Module Dependencies
+
+```mermaid
+graph TD;
+    game-->question;
+    game-->answer;
+    game-->reward;
+    game-->shared;
+    question-->shared;
+    answer-->shared;
+    reward-->shared;
+```
