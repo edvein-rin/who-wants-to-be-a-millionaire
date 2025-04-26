@@ -49,7 +49,7 @@ export const Game = () => {
     } else {
       setCurrentGameStage(GameStage.OVER);
     }
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, currentQuestion]);
 
   const handleWrongAnswer = useCallback(() => {
     setCurrentGameStage(GameStage.OVER);
