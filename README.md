@@ -126,11 +126,11 @@ Components (ui/libs) inside a module can use each other.
 #### Existing Module Dependencies
 
 ```mermaid
----
-config:
-  layout: elk
----
 graph TD;
-    game["game"] --> question["question"] & answer["answer"] & reward["reward"] & shared["shared"]
-    question --> answer & reward
+    game --> shared
+    game --> reward
+    question --> answer
+    game --> answer
+    game --> question
+    question --> reward
 ```
