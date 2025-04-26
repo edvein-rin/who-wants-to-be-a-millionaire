@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "id": 0,
+      "body": "What color is the sky on a clear day?",
+      "answers": [
+        { "id": 1, "body": "Green" },
+        { "id": 2, "body": "Blue" },
+        { "id": 3, "body": "Red" },
+        { "id": 4, "body": "Yellow" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 500
+    },
+    {
+      "id": 1,
+      "body": "Which animal barks?",
+      "answers": [
+        { "id": 1, "body": "Cat" },
+        { "id": 2, "body": "Dog" },
+        { "id": 3, "body": "Cow" },
+        { "id": 4, "body": "Sheep" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 1000
+    },
+    {
+      "id": 2,
+      "body": "How many continents are there?",
+      "answers": [
+        { "id": 1, "body": "5" },
+        { "id": 2, "body": "6" },
+        { "id": 3, "body": "7" },
+        { "id": 4, "body": "8" }
+      ],
+      "correctAnswerIds": [3],
+      "reward": 2000
+    },
+    {
+      "id": 3,
+      "body": "Which planet is known as the Red Planet?",
+      "answers": [
+        { "id": 1, "body": "Earth" },
+        { "id": 2, "body": "Venus" },
+        { "id": 3, "body": "Mars" },
+        { "id": 4, "body": "Jupiter" }
+      ],
+      "correctAnswerIds": [3],
+      "reward": 4000
+    },
+    {
+      "id": 4,
+      "body": "Which language is primarily spoken in Brazil?",
+      "answers": [
+        { "id": 1, "body": "Spanish" },
+        { "id": 2, "body": "Portuguese" },
+        { "id": 3, "body": "French" },
+        { "id": 4, "body": "English" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 8000
+    },
+    {
+      "id": 5,
+      "body": "What is H2O more commonly known as?",
+      "answers": [
+        { "id": 1, "body": "Salt" },
+        { "id": 2, "body": "Water" },
+        { "id": 3, "body": "Hydrogen" },
+        { "id": 4, "body": "Oxygen" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 16000
+    },
+    {
+      "id": 6,
+      "body": "Who painted the Mona Lisa?",
+      "answers": [
+        { "id": 1, "body": "Vincent van Gogh" },
+        { "id": 2, "body": "Pablo Picasso" },
+        { "id": 3, "body": "Leonardo da Vinci" },
+        { "id": 4, "body": "Claude Monet" }
+      ],
+      "correctAnswerIds": [3],
+      "reward": 32000
+    },
+    {
+      "id": 7,
+      "body": "What is the square root of 144?",
+      "answers": [
+        { "id": 1, "body": "10" },
+        { "id": 2, "body": "12" },
+        { "id": 3, "body": "14" },
+        { "id": 4, "body": "16" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 64000
+    },
+    {
+      "id": 8,
+      "body": "Which element has the chemical symbol 'Fe'?",
+      "answers": [
+        { "id": 1, "body": "Fluorine" },
+        { "id": 2, "body": "Iron" },
+        { "id": 3, "body": "Francium" },
+        { "id": 4, "body": "Fermium" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 125000
+    },
+    {
+      "id": 9,
+      "body": "In what year did World War II end?",
+      "answers": [
+        { "id": 1, "body": "1942" },
+        { "id": 2, "body": "1945" },
+        { "id": 3, "body": "1948" },
+        { "id": 4, "body": "1950" }
+      ],
+      "correctAnswerIds": [2],
+      "reward": 250000
+    },
+    {
+      "id": 10,
+      "body": "Who developed the theory of general relativity?",
+      "answers": [
+        { "id": 1, "body": "Isaac Newton" },
+        { "id": 2, "body": "Nikola Tesla" },
+        { "id": 3, "body": "Albert Einstein" },
+        { "id": 4, "body": "Marie Curie" }
+      ],
+      "correctAnswerIds": [3],
+      "reward": 500000
+    },
+    {
+      "id": 11,
+      "body": "What is the smallest prime number greater than 100?",
+      "answers": [
+        { "id": 1, "body": "101" },
+        { "id": 2, "body": "103" },
+        { "id": 3, "body": "107" },
+        { "id": 4, "body": "109" }
+      ],
+      "correctAnswerIds": [1],
+      "reward": 1000000
+    }
+  ]
+}
