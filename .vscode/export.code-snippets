@@ -1,0 +1,7 @@
+{
+  "export { $ } from '$';": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "expo",
+    "body": ["export { $2 } from '$1';"]
+  }
+}
