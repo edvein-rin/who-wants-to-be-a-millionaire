@@ -14,6 +14,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
+    "classnames": "2.5.1",
     "modern-normalize": "3.0.1",
     "next": "15.3.1",
     "react": "^19.0.0",
