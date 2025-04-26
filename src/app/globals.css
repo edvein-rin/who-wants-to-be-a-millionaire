@@ -15,7 +15,11 @@
   --black-100: #1c1c21;
 }
 
+html,
 body {
+  height: 100dvh;
+  width: 100dvw;
+
   color: var(--black-100);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
