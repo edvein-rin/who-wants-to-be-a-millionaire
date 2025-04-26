@@ -1,1 +1,1 @@
-export * from "./lib";
+export type { Question } from "./lib";

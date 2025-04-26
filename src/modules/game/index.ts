@@ -1,1 +1,1 @@
-export * from "./ui";
+export { Game } from "./ui";
