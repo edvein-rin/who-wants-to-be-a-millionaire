@@ -17,8 +17,7 @@
     background-color: var(--orange-80);
   }
 
-  &:active,
-  &:focus {
+  &:active {
     background-color: var(--orange-120);
   }
 }
