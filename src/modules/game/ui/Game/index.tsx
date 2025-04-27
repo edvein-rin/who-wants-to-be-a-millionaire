@@ -17,12 +17,12 @@ export const Game = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const currentQuestion = useMemo(
     () => gameConfig.questions[currentQuestionIndex],
-    [currentQuestionIndex]
+    [gameConfig, currentQuestionIndex]
   );
 
   const rewards = useMemo(
     () => gameConfig.questions.map((question) => question.reward),
-    []
+    [gameConfig]
   );
   const currentRewardIndex = currentQuestionIndex;
 
@@ -48,7 +48,7 @@ export const Game = () => {
     } else {
       setCurrentGameStage(GameStage.OVER);
     }
-  }, [currentQuestionIndex, currentQuestion]);
+  }, [gameConfig, currentQuestionIndex, currentQuestion]);
 
   const handleWrongAnswer = useCallback(() => {
     setCurrentGameStage(GameStage.OVER);
