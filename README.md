@@ -23,7 +23,7 @@ Ready for the challenge?
 - **Framework:** [Next.js](https://nextjs.org/)
 - **Styling:** [CSS modules](https://github.com/css-modules/css-modules)
 - **Linting:** [ESLint](https://eslint.org/)
-- **Testing:** [vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), [StoryBook](https://storybook.js.org/), [Playwright](https://playwright.dev/)
+- **Testing:** [vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), [Playwright](https://playwright.dev/)
 - **CI/CD**: [GitHub Actions](https://github.com/features/actions), [Husky](https://typicode.github.io/husky/), [lint-staged](https://github.com/lint-staged/lint-staged), [commitlint](https://commitlint.js.org/)
 - **Deployment**: [Vercel](https://vercel.com/)
 
@@ -88,7 +88,7 @@ pnpm lint:staged
 
 ## Architecture
 
-Modular front-end a little bit inspired by `Nest.js` structure.
+Module based front-end a little bit inspired by `Nest.js` structure.
 
 ### Folder Structure
 
@@ -101,19 +101,24 @@ Modular front-end a little bit inspired by `Nest.js` structure.
 ├── src
 │   ├── app                 # Next.js routing (pages)
 │   └── modules             # Modules
-│           ├── shared
 │           ├── answer
-│           └── ...
+│           ├── game
+│           ├── question
+│           ├── reward
+│           └── shared
 └── ...
 ```
 
 ### Modules
 
-Modules provide a **public interface** for importing things from them via `index.ts`.  
-What is not exported from a module can't be imported directly.  
+**Module** is just a folder that holds similar by meaning components, functions etc.  
+Modules provide a **public interface** for interacting with each other.  
 By this, **cohesion** and **transparent dependencies** are achieved.
 
-Components (ui/libs) inside a module can use each other.
+Simple rules:
+
+1. What is not exported from a module can't be imported directly.
+2. Entities within a module (`ui`/`libs`) can import each other.
 
 #### Module Structure
 
