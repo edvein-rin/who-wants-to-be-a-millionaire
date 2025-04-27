@@ -18,5 +18,13 @@
     "scope": "typescript,typescriptreact",
     "prefix": "expolib",
     "body": ["export * from \"./lib\";"]
+  },
+  "Export component and type": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "expocomp",
+    "body": [
+      "export { $1 } from \"./$1\";",
+      "export type { $1Props } from \"./$1\";"
+    ]
   }
 }
