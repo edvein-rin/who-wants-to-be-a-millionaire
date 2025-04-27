@@ -9,16 +9,6 @@
     "prefix": "expotype",
     "body": ["export type { $2 } from \"$1\";"]
   },
-  "export * from './ui';": {
-    "scope": "typescript,typescriptreact",
-    "prefix": "expoui",
-    "body": ["export * from \"./ui\";"]
-  },
-  "export * from './lib';": {
-    "scope": "typescript,typescriptreact",
-    "prefix": "expolib",
-    "body": ["export * from \"./lib\";"]
-  },
   "Export component and type": {
     "scope": "typescript,typescriptreact",
     "prefix": "expocomp",
