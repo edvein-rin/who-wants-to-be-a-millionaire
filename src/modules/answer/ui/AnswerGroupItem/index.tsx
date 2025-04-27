@@ -78,7 +78,6 @@ export const AnswerGroupItem = ({
             className={styles.middlePartBackgroundPath}
           />
         </svg>
-
         <div className={styles.middlePartForeground}>
           {label !== undefined && label !== null && (
             <Text className={styles.label}>{label}</Text>
