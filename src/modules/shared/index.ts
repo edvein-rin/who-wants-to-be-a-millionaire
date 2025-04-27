@@ -1,3 +1,4 @@
+export { errorToErrorMessage } from "./lib";
 export { Button, Drawer, Icon, IconButton, Image, Text } from "./ui";
 export type {
   ButtonProps,
