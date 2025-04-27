@@ -1,17 +1,5 @@
-import { useEffect, useRef } from "react";
-
-import { GameConfig, validateGameConfig } from ".";
+import { GameConfig, gameConfigSchema } from ".";
 import gameConfig from "./gameConfig.json";
 
-export const useGameConfig = (): GameConfig => {
-  const isFirstRenderReference = useRef(true);
-
-  useEffect(() => {
-    if (isFirstRenderReference) {
-      validateGameConfig(gameConfig);
-      isFirstRenderReference.current = false;
-    }
-  }, []);
-
-  return gameConfig;
-};
+export const useGameConfig = (): GameConfig =>
+  gameConfigSchema.parse(gameConfig);
