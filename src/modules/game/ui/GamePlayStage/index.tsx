@@ -106,11 +106,12 @@ export const GamePlayStage = ({
           </div>
         </main>
       </div>
-      <GamePlayStageSidebar
-        rewards={rewards}
-        currentRewardIndex={currentRewardIndex}
-        className={styles.sidebar}
-      />
+      <div className={styles.sidebarWrapper}>
+        <GamePlayStageSidebar
+          rewards={rewards}
+          currentRewardIndex={currentRewardIndex}
+        />
+      </div>
     </div>
   );
 };

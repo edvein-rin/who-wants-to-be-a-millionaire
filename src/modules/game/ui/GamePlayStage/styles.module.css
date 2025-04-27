@@ -26,7 +26,7 @@
   padding: 16px;
 }
 
-.sidebar {
+.sidebarWrapper {
   display: none;
 }
 
@@ -73,7 +73,7 @@
     display: none;
   }
 
-  .sidebar {
+  .sidebarWrapper {
     display: flex;
   }
 
