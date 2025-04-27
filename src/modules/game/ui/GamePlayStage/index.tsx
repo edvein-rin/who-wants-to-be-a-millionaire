@@ -52,7 +52,7 @@ export const GamePlayStage = ({
         }
       }, 250);
     },
-    [question]
+    [question, onCorrectAnswer, onWrongAnswer]
   );
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

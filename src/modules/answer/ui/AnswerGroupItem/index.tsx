@@ -35,7 +35,7 @@ export const AnswerGroupItem = ({
     if (!isSelected && value !== undefined) {
       onSelect?.(value);
     }
-  }, [onSelect, value]);
+  }, [onSelect, value, isSelected]);
 
   return (
     <label
