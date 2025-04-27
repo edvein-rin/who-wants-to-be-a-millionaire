@@ -1,0 +1,132 @@
+.root {
+  display: flex;
+  align-items: center;
+
+  width: 320px;
+
+  cursor: pointer;
+
+  &:hover {
+    & .sideline {
+      border-color: var(--orange-100);
+    }
+    & .middlePartBackgroundPath {
+      stroke: var(--orange-100);
+    }
+  }
+
+  &:active {
+    & .sideline {
+      border-color: var(--orange-100);
+    }
+    & .middlePartBackgroundPath {
+      stroke: var(--orange-100);
+      fill: var(--orange-5);
+    }
+  }
+
+  &.selected {
+    &.correct {
+      & .sideline {
+        border-color: var(--green-100);
+      }
+      & .middlePartBackgroundPath {
+        stroke: var(--green-100);
+        fill: var(--green-5);
+      }
+    }
+
+    &.wrong {
+      & .sideline {
+        border-color: var(--red-100);
+      }
+      & .middlePartBackgroundPath {
+        stroke: var(--red-100);
+        fill: var(--red-5);
+      }
+    }
+  }
+}
+
+.input {
+  display: none;
+}
+
+.sideline {
+  height: 1px;
+  width: 17px;
+
+  border-top: 1px solid var(--black-40);
+
+  transition: all 150ms;
+}
+
+.middlePart {
+  display: flex;
+  position: relative;
+
+  flex-grow: 1;
+  padding: 20px 24px;
+
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.middlePartBackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  &.big {
+    display: none;
+  }
+}
+
+.middlePartBackgroundPath {
+  fill: var(--white-100);
+  stroke: var(--black-40);
+
+  transition: all 150ms;
+}
+
+.middlePartForeground {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  z-index: 0;
+}
+
+.label {
+  color: var(--orange-100);
+  font-weight: 600;
+}
+
+.answer {
+  flex-grow: 1;
+}
+
+@media (min-width: 1024px) {
+  .root {
+    width: 405px;
+  }
+
+  .middlePart {
+    padding: 24.5px 32px;
+
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .middlePartBackground {
+    &.small {
+      display: none;
+    }
+    &.big {
+      display: inline;
+    }
+  }
+}
