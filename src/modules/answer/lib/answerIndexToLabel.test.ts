@@ -1,0 +1,31 @@
+import { expect, it } from "vitest";
+import { answerIndexToLabel } from "./answerIndexToLabel";
+
+it("converts answer index to label", () => {
+  expect(answerIndexToLabel(0)).toMatchInlineSnapshot(`"A"`);
+  expect(answerIndexToLabel(1)).toMatchInlineSnapshot(`"B"`);
+  expect(answerIndexToLabel(2)).toMatchInlineSnapshot(`"C"`);
+  expect(answerIndexToLabel(3)).toMatchInlineSnapshot(`"D"`);
+  expect(answerIndexToLabel(4)).toMatchInlineSnapshot(`"E"`);
+  expect(answerIndexToLabel(5)).toMatchInlineSnapshot(`"F"`);
+  expect(answerIndexToLabel(6)).toMatchInlineSnapshot(`"G"`);
+  expect(answerIndexToLabel(7)).toMatchInlineSnapshot(`"H"`);
+  expect(answerIndexToLabel(8)).toMatchInlineSnapshot(`"I"`);
+  expect(answerIndexToLabel(9)).toMatchInlineSnapshot(`"J"`);
+  expect(answerIndexToLabel(10)).toMatchInlineSnapshot(`"K"`);
+  expect(answerIndexToLabel(11)).toMatchInlineSnapshot(`"L"`);
+  expect(answerIndexToLabel(12)).toMatchInlineSnapshot(`"M"`);
+  expect(answerIndexToLabel(13)).toMatchInlineSnapshot(`"N"`);
+  expect(answerIndexToLabel(14)).toMatchInlineSnapshot(`"O"`);
+  expect(answerIndexToLabel(15)).toMatchInlineSnapshot(`"P"`);
+  expect(answerIndexToLabel(16)).toMatchInlineSnapshot(`"Q"`);
+  expect(answerIndexToLabel(17)).toMatchInlineSnapshot(`"R"`);
+  expect(answerIndexToLabel(18)).toMatchInlineSnapshot(`"S"`);
+  expect(answerIndexToLabel(19)).toMatchInlineSnapshot(`"T"`);
+  expect(answerIndexToLabel(20)).toMatchInlineSnapshot(`"U"`);
+  expect(answerIndexToLabel(21)).toMatchInlineSnapshot(`"V"`);
+  expect(answerIndexToLabel(22)).toMatchInlineSnapshot(`"W"`);
+  expect(answerIndexToLabel(23)).toMatchInlineSnapshot(`"X"`);
+  expect(answerIndexToLabel(24)).toMatchInlineSnapshot(`"Y"`);
+  expect(answerIndexToLabel(25)).toMatchInlineSnapshot(`"Z"`);
+});
