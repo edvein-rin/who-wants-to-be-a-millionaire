@@ -1,69 +1,46 @@
 "use client";
 
-import classNames from "classnames";
-import { useCallback, useState } from "react";
+import { use, useCallback, useState } from "react";
 
 import { Icon, IconButton, Text } from "@/modules/shared";
-import { Question } from "@/modules/question";
 import {
   Answer,
   AnswerGroup,
   AnswerGroupItem,
   answerIndexToLabel,
 } from "@/modules/answer";
-import { Reward } from "@/modules/reward";
 
-import { GamePlayStageMenuDrawer, GamePlayStageSidebar } from "..";
+import { GameContext, GamePlayStageMenuDrawer, GamePlayStageSidebar } from "..";
 
 import styles from "./styles.module.css";
 
-export type GamePlayStageProps = {
-  question: Question;
-  rewards: Reward[];
-  currentRewardIndex: number;
-  onCorrectAnswer: () => void;
-  onWrongAnswer: () => void;
-  className?: string;
-};
+export const GamePlayStage = () => {
+  const { currentQuestion, answerCurrentQuestion } = use(GameContext);
 
-export const GamePlayStage = ({
-  question,
-  rewards,
-  currentRewardIndex,
-  onCorrectAnswer,
-  onWrongAnswer,
-  className,
-}: GamePlayStageProps) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState<Answer["id"]>();
 
   const handleAnswerGroupChange = useCallback(
     (selectedAnswerId: Answer["id"]) => {
-      setSelectedAnswerId(selectedAnswerId);
+      if (!currentQuestion) return;
 
-      const isCorrectAnswer =
-        question.correctAnswerIds.includes(selectedAnswerId);
+      setSelectedAnswerId(selectedAnswerId);
 
       setTimeout(() => {
         setSelectedAnswerId(undefined);
-        if (isCorrectAnswer) {
-          onCorrectAnswer();
-        } else {
-          onWrongAnswer();
-        }
+        answerCurrentQuestion(selectedAnswerId);
       }, 250);
     },
-    [question, onCorrectAnswer, onWrongAnswer]
+    [currentQuestion, answerCurrentQuestion]
   );
 
+  if (!currentQuestion) return null;
+
   return (
-    <div className={classNames(styles.root, className)}>
+    <div className={styles.root}>
       <div className={styles.mainWrapper}>
         <main className={styles.main}>
           <div className={styles.header}>
-            <GamePlayStageMenuDrawer
-              rewards={rewards}
-              currentRewardIndex={currentRewardIndex}
-            >
+            <GamePlayStageMenuDrawer>
               {({ open }) => (
                 <IconButton onClick={open}>
                   <Icon name="menu" />
@@ -71,7 +48,7 @@ export const GamePlayStage = ({
               )}
             </GamePlayStageMenuDrawer>
           </div>
-          <Text className={styles.question}>{question.text}</Text>
+          <Text className={styles.question}>{currentQuestion.text}</Text>
           <div>
             <AnswerGroup
               name="answers"
@@ -79,10 +56,9 @@ export const GamePlayStage = ({
               onChange={handleAnswerGroupChange}
               className={styles.answers}
             >
-              {question.answers.map((answer, index) => {
-                const isCorrectAnswer = question.correctAnswerIds.includes(
-                  answer.id
-                );
+              {currentQuestion.answers.map((answer, index) => {
+                const isCorrectAnswer =
+                  currentQuestion.correctAnswerIds.includes(answer.id);
 
                 return (
                   <AnswerGroupItem
@@ -99,10 +75,7 @@ export const GamePlayStage = ({
         </main>
       </div>
       <div className={styles.sidebarWrapper}>
-        <GamePlayStageSidebar
-          rewards={rewards}
-          currentRewardIndex={currentRewardIndex}
-        />
+        <GamePlayStageSidebar />
       </div>
     </div>
   );

@@ -1,40 +1,59 @@
 import classNames from "classnames";
+import { use, useMemo } from "react";
 
 import {
-  Reward,
   RewardLadder,
   RewardLadderItem,
   RewardLadderItemProps,
 } from "@/modules/reward";
 
+import { GameContext } from "../GameContext";
+
 import styles from "./styles.module.css";
 
 export type GamePlayStageSidebarProps = {
-  rewards: Reward[];
-  currentRewardIndex: number;
   className?: string;
 };
 
 export const GamePlayStageSidebar = ({
-  rewards,
-  currentRewardIndex,
   className,
-}: GamePlayStageSidebarProps) => (
-  <aside className={classNames(styles.root, className)}>
-    <RewardLadder>
-      {rewards
-        .map((reward, index) => {
-          const variant: RewardLadderItemProps["variant"] = (() => {
-            if (index < currentRewardIndex) return "finished";
-            if (index === currentRewardIndex) return "current";
-            return "inactive";
-          })();
+}: GamePlayStageSidebarProps) => {
+  const { gameConfig, currentQuestion } = use(GameContext);
 
-          return (
-            <RewardLadderItem key={index} reward={reward} variant={variant} />
-          );
-        })
-        .reverse()}
-    </RewardLadder>
-  </aside>
-);
+  const rewards = useMemo(
+    () => gameConfig?.questions.map((question) => question.reward),
+    [gameConfig?.questions]
+  );
+  const currentQuestionIndex =
+    gameConfig && currentQuestion
+      ? gameConfig.questions.findIndex((x) => x.id === currentQuestion.id)
+      : undefined;
+  const currentRewardIndex = currentQuestionIndex;
+
+  if (
+    rewards === undefined ||
+    currentRewardIndex === undefined ||
+    currentRewardIndex === -1
+  )
+    return null;
+
+  return (
+    <aside className={classNames(styles.root, className)}>
+      <RewardLadder>
+        {rewards
+          .map((reward, index) => {
+            const variant: RewardLadderItemProps["variant"] = (() => {
+              if (index < currentRewardIndex) return "finished";
+              if (index === currentRewardIndex) return "current";
+              return "inactive";
+            })();
+
+            return (
+              <RewardLadderItem key={index} reward={reward} variant={variant} />
+            );
+          })
+          .reverse()}
+      </RewardLadder>
+    </aside>
+  );
+};

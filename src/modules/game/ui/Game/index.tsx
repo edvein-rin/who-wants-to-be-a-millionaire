@@ -3,9 +3,16 @@
 import { useCallback, useMemo, useState } from "react";
 
 import { Reward } from "@/modules/reward";
+import { Answer } from "@/modules/answer";
 
-import { GameStartStage, GamePlayStage, GameOverStage } from "..";
 import { GameStage, useGameConfig } from "../../lib";
+import {
+  GameStartStage,
+  GamePlayStage,
+  GameOverStage,
+  GameContext,
+  GameContextValue,
+} from "..";
 
 export const Game = () => {
   const gameConfig = useGameConfig();
@@ -13,31 +20,25 @@ export const Game = () => {
   const [currentGameStage, setCurrentGameStage] = useState<GameStage>(
     GameStage.START
   );
-  const [reward, setReward] = useState<Reward>(0);
+  const [currentReward, setCurrentReward] = useState<Reward>(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const currentQuestion = useMemo(
     () => gameConfig.questions[currentQuestionIndex],
     [gameConfig, currentQuestionIndex]
   );
 
-  const rewards = useMemo(
-    () => gameConfig.questions.map((question) => question.reward),
-    [gameConfig]
-  );
-  const currentRewardIndex = currentQuestionIndex;
-
   const startGame = useCallback(() => {
     setCurrentGameStage(GameStage.PLAY);
   }, []);
 
   const restartGame = useCallback(() => {
-    setReward(0);
+    setCurrentReward(0);
     setCurrentQuestionIndex(0);
     startGame();
   }, [startGame]);
 
   const handleCorrectAnswer = useCallback(() => {
-    setReward(currentQuestion.reward);
+    setCurrentReward(currentQuestion.reward);
 
     const nextQuestionIndex = currentQuestionIndex + 1;
     const isThereNextQuestion =
@@ -54,22 +55,53 @@ export const Game = () => {
     setCurrentGameStage(GameStage.OVER);
   }, []);
 
-  switch (currentGameStage) {
-    case GameStage.START:
-      return <GameStartStage onStart={startGame} />;
-    case GameStage.PLAY:
-      return (
-        <GamePlayStage
-          question={currentQuestion}
-          rewards={rewards}
-          currentRewardIndex={currentRewardIndex}
-          onCorrectAnswer={handleCorrectAnswer}
-          onWrongAnswer={handleWrongAnswer}
-        />
-      );
-    case GameStage.OVER:
-      return <GameOverStage reward={reward} onRestart={restartGame} />;
-    default:
-      throw new Error(`Stage ${currentGameStage} is not implemented`);
-  }
+  const answerCurrentQuestion = useCallback(
+    (answerId: Answer["id"]) => {
+      const isAnswerCorrect =
+        currentQuestion.correctAnswerIds.includes(answerId);
+
+      if (isAnswerCorrect) {
+        handleCorrectAnswer();
+      } else {
+        handleWrongAnswer();
+      }
+    },
+    [currentQuestion, handleCorrectAnswer, handleWrongAnswer]
+  );
+
+  const gameStageComponent = useMemo(() => {
+    switch (currentGameStage) {
+      case GameStage.START:
+        return <GameStartStage />;
+      case GameStage.PLAY:
+        return <GamePlayStage />;
+      case GameStage.OVER:
+        return <GameOverStage />;
+      default:
+        throw new Error(`Stage ${currentGameStage} is not implemented`);
+    }
+  }, [currentGameStage]);
+
+  const gameContextValue: GameContextValue = useMemo(
+    () => ({
+      gameConfig,
+      startGame,
+      restartGame,
+      currentQuestion,
+      answerCurrentQuestion,
+      currentReward,
+    }),
+    [
+      gameConfig,
+      startGame,
+      restartGame,
+      currentQuestion,
+      answerCurrentQuestion,
+      currentReward,
+    ]
+  );
+
+  return (
+    <GameContext value={gameContextValue}>{gameStageComponent}</GameContext>
+  );
 };
