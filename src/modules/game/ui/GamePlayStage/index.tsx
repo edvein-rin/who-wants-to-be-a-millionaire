@@ -11,11 +11,11 @@ import {
   AnswerGroupItem,
   answerIndexToLabel,
 } from "@/modules/answer";
+import { Reward } from "@/modules/reward";
 
 import { GamePlayStageMenuDrawer, GamePlayStageSidebar } from "..";
 
 import styles from "./styles.module.css";
-import { Reward } from "@/modules/reward";
 
 export type GamePlayStageProps = {
   question: Question;
@@ -79,7 +79,7 @@ export const GamePlayStage = ({
               <Icon name="menu" />
             </IconButton>
           </div>
-          <Text className={styles.question}>{question.body}</Text>
+          <Text className={styles.question}>{question.text}</Text>
           <div>
             <AnswerGroup
               name="answers"
@@ -97,7 +97,7 @@ export const GamePlayStage = ({
                     key={answer.id}
                     label={answerIndexToLabel(index)}
                     value={answer.id}
-                    body={answer.body}
+                    text={answer.text}
                     isCorrect={isCorrectAnswer}
                   />
                 );

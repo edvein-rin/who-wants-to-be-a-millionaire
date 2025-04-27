@@ -1,4 +1,4 @@
 export type Answer = {
   id: number;
-  body: string;
+  text: string;
 };

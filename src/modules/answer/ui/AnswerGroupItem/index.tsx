@@ -12,7 +12,7 @@ import { Text } from "@/modules/shared";
 export type AnswerGroupItemProps = {
   className?: string;
   label?: ReactNode;
-  body?: ReactNode;
+  text?: ReactNode;
   value?: Answer["id"];
   isCorrect?: boolean;
 };
@@ -20,7 +20,7 @@ export type AnswerGroupItemProps = {
 export const AnswerGroupItem = ({
   className,
   label,
-  body,
+  text,
   value,
   isCorrect,
 }: AnswerGroupItemProps) => {
@@ -82,7 +82,7 @@ export const AnswerGroupItem = ({
           {label !== undefined && label !== null && (
             <Text className={styles.label}>{label}</Text>
           )}
-          <Text className={styles.answer}>{body}</Text>
+          <Text className={styles.answer}>{text}</Text>
         </div>
       </div>
       <div className={styles.sideline} />

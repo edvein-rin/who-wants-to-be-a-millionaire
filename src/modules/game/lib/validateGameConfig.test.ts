@@ -11,7 +11,7 @@ it("throws on less than 2 answers", () => {
   expect(() =>
     validateGameConfig({
       questions: [
-        { id: 0, body: "", answers: [], correctAnswerIds: [0], reward: 1 },
+        { id: 0, text: "", answers: [], correctAnswerIds: [0], reward: 1 },
       ],
     })
   ).toThrowErrorMatchingInlineSnapshot(
@@ -22,8 +22,8 @@ it("throws on less than 2 answers", () => {
       questions: [
         {
           id: 0,
-          body: "",
-          answers: [{ id: 0, body: "" }],
+          text: "",
+          answers: [{ id: 0, text: "" }],
           correctAnswerIds: [0],
           reward: 1,
         },
@@ -37,10 +37,10 @@ it("throws on less than 2 answers", () => {
       questions: [
         {
           id: 0,
-          body: "",
+          text: "",
           answers: [
-            { id: 0, body: "" },
-            { id: 1, body: "" },
+            { id: 0, text: "" },
+            { id: 1, text: "" },
           ],
           correctAnswerIds: [0],
           reward: 1,
@@ -56,10 +56,10 @@ it("throws on no correct answers", () => {
       questions: [
         {
           id: 0,
-          body: "",
+          text: "",
           answers: [
-            { id: 0, body: "" },
-            { id: 1, body: "" },
+            { id: 0, text: "" },
+            { id: 1, text: "" },
           ],
           correctAnswerIds: [],
           reward: 1,
@@ -75,10 +75,10 @@ it("throws on no question reward", () => {
       questions: [
         {
           id: 0,
-          body: "",
+          text: "",
           answers: [
-            { id: 0, body: "" },
-            { id: 1, body: "" },
+            { id: 0, text: "" },
+            { id: 1, text: "" },
           ],
           correctAnswerIds: [0],
           reward: 0,
@@ -94,10 +94,10 @@ it("throws on correct answers not being in answers", () => {
       questions: [
         {
           id: 0,
-          body: "",
+          text: "",
           answers: [
-            { id: 0, body: "" },
-            { id: 1, body: "" },
+            { id: 0, text: "" },
+            { id: 1, text: "" },
           ],
           correctAnswerIds: [3],
           reward: 1,
