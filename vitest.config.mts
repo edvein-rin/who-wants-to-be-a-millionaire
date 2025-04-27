@@ -7,5 +7,8 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     exclude: [...configDefaults.exclude, "e2e/*"],
+    coverage: {
+      provider: "istanbul",
+    },
   },
 });
