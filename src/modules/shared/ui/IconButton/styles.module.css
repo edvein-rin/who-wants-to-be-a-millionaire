@@ -1,0 +1,12 @@
+.root {
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
