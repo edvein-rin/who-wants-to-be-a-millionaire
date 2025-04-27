@@ -27,6 +27,12 @@ export const Game = () => {
     [currentQuestionIndex]
   );
 
+  const rewards = useMemo(
+    () => gameConfig.questions.map((question) => question.reward),
+    []
+  );
+  const currentRewardIndex = currentQuestionIndex;
+
   const startGame = useCallback(() => {
     setCurrentGameStage(GameStage.PLAY);
   }, []);
@@ -62,6 +68,8 @@ export const Game = () => {
       return (
         <GamePlayStage
           question={currentQuestion}
+          rewards={rewards}
+          currentRewardIndex={currentRewardIndex}
           onCorrectAnswer={handleCorrectAnswer}
           onWrongAnswer={handleWrongAnswer}
         />
