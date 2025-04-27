@@ -1,21 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { Reward } from "@/modules/reward";
 
 import { GameStartStage, GamePlayStage, GameOverStage } from "..";
-import { GameStage, gameConfig, validateGameConfig } from "../../lib";
+import { GameStage, useGameConfig } from "../../lib";
 
 export const Game = () => {
-  const isFirstRenderReference = useRef(true);
-
-  useEffect(() => {
-    if (isFirstRenderReference) {
-      validateGameConfig(gameConfig);
-      isFirstRenderReference.current = false;
-    }
-  }, []);
+  const gameConfig = useGameConfig();
 
   const [currentGameStage, setCurrentGameStage] = useState<GameStage>(
     GameStage.START
