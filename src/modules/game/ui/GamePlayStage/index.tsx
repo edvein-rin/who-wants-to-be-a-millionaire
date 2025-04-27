@@ -55,29 +55,21 @@ export const GamePlayStage = ({
     [question, onCorrectAnswer, onWrongAnswer]
   );
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const openMenu = useCallback(() => {
-    setIsMenuOpen(true);
-  }, []);
-  const closeMenu = useCallback(() => {
-    setIsMenuOpen(false);
-  }, []);
-
   return (
     <div className={classNames(styles.root, className)}>
       <div className={styles.mainWrapper}>
         <main className={styles.main}>
           <div className={styles.header}>
-            {isMenuOpen && (
-              <GamePlayStageMenuDrawer
-                rewards={rewards}
-                currentRewardIndex={currentRewardIndex}
-                onClose={closeMenu}
-              />
-            )}
-            <IconButton onClick={openMenu}>
-              <Icon name="menu" />
-            </IconButton>
+            <GamePlayStageMenuDrawer
+              rewards={rewards}
+              currentRewardIndex={currentRewardIndex}
+            >
+              {({ open }) => (
+                <IconButton onClick={open}>
+                  <Icon name="menu" />
+                </IconButton>
+              )}
+            </GamePlayStageMenuDrawer>
           </div>
           <Text className={styles.question}>{question.text}</Text>
           <div>
