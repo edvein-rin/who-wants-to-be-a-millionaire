@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect } from "react";
 
-import { Button } from "@/modules/shared";
+import { Button, errorToErrorMessage } from "@/modules/shared";
 
 import styles from "./error.module.css";
 
@@ -24,7 +24,7 @@ export default function Error({
   return (
     <div className={styles.root}>
       <h2>Something went wrong!</h2>
-      <p>{error.message}</p>
+      <p>{errorToErrorMessage(error)}</p>
       <Button onClick={handleTryAgainButtonClick}>Try again</Button>
     </div>
   );
