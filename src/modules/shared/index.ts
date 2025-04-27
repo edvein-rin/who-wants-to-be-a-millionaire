@@ -1,6 +1,7 @@
-export { Button, Icon, IconButton, Image, Text } from "./ui";
+export { Button, Drawer, Icon, IconButton, Image, Text } from "./ui";
 export type {
   ButtonProps,
+  DrawerProps,
   IconProps,
   IconButtonProps,
   ImageProps,

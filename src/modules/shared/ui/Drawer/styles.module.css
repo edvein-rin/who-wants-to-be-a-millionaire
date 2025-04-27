@@ -1,0 +1,10 @@
+.root {
+  position: absolute;
+  z-index: var(--z-index-drawer);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background-color: var(--black-5);
+}

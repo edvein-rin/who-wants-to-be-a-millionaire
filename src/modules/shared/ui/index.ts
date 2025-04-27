@@ -1,5 +1,7 @@
 export { Button } from "./Button";
 export type { ButtonProps } from "./Button";
+export { Drawer } from "./Drawer";
+export type { DrawerProps } from "./Drawer";
 export { Icon } from "./Icon";
 export type { IconProps } from "./Icon";
 export { IconButton } from "./IconButton";

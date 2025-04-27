@@ -14,6 +14,8 @@
   --black-40: #d0d0d8;
   --black-100: #1c1c21;
 
+  --z-index-drawer: 100;
+
   /* I wish it worked with media queries... */
   --breakpoint-desktop: 1440px;
 }
