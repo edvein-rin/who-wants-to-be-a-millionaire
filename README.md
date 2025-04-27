@@ -59,7 +59,7 @@ pnpm build
 pnpm start
 ```
 
-### Testing
+### Unit testing
 
 ```bash
 pnpm test
@@ -68,6 +68,22 @@ pnpm test
 ```bash
 # Watch for file changes and rerun tests
 pnpm test:watch
+```
+
+### End-to-end testing
+
+```bash
+pnpm e2e
+```
+
+```bash
+# UI mode
+pnpm e2e:ui
+```
+
+```bash
+# Debug mode
+pnpm e2e:debug
 ```
 
 ### Linting
