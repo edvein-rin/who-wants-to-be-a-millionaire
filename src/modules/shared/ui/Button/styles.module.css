@@ -4,6 +4,7 @@
 
   border-radius: 12px;
   background-color: var(--orange-100);
+  cursor: pointer;
 
   color: var(--white-100);
   font-weight: 600;
