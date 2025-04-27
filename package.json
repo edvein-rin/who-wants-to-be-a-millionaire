@@ -11,7 +11,10 @@
     "lint:fix": "next lint --fix",
     "lint:staged": "lint-staged",
     "test": "vitest run --passWithNoTests",
-    "test:watch": "vitest watch --passWithNoTests"
+    "test:watch": "vitest watch --passWithNoTests",
+    "e2e": "pnpm exec playwright test",
+    "e2e:ui": "pnpm exec playwright test --ui",
+    "e2e:debug": "pnpm exec playwright test --debug"
   },
   "dependencies": {
     "classnames": "2.5.1",
