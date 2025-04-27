@@ -13,7 +13,7 @@ export const GameStartStage = ({ className, onStart }: GameStartStageProps) => (
   <main className={classNames(styles.root, className)}>
     <div className={styles.imageWrapperWrapper}>
       <div className={styles.imageWrapper}>
-        <Image alt="thumb-up" src="/thumb-up.svg" fill />
+        <Image alt="thumb-up" src="/images/thumb-up.svg" fill priority />
       </div>
     </div>
     <div className={styles.cta}>
