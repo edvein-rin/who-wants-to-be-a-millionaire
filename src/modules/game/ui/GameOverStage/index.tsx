@@ -14,8 +14,8 @@ export const GameOverStage = ({
   reward,
   onRestart,
 }: GameOverStageProps) => (
-  <div className={classNames(className)}>
+  <main className={classNames(className)}>
     <p>Score: {formatReward(reward)}</p>
     <Button onClick={onRestart}>Try again</Button>
-  </div>
+  </main>
 );

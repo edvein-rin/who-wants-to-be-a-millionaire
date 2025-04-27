@@ -10,7 +10,7 @@ export type GameStartStageProps = {
 };
 
 export const GameStartStage = ({ className, onStart }: GameStartStageProps) => (
-  <div className={classNames(styles.root, className)}>
+  <main className={classNames(styles.root, className)}>
     <div className={styles.imageWrapperWrapper}>
       <div className={styles.imageWrapper}>
         <Image alt="thumb-up" src="/thumb-up.svg" fill />
@@ -23,5 +23,5 @@ export const GameStartStage = ({ className, onStart }: GameStartStageProps) => (
       </Text>
       <Button onClick={onStart}>Start</Button>
     </div>
-  </div>
+  </main>
 );
